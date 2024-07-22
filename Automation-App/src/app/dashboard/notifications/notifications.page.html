@@ -5,7 +5,7 @@
   </div>
 
   <div *ngIf="!refreshed">
-    <ion-button  color="success" *ngIf= "ios" expand="block" button (click) = "refreshNotifications()">Refresh</ion-button>
+    <ion-button  color="success" *ngIf= "ios" expand="block" button (click) = "refreshNotifications($event)">Refresh</ion-button>
     <ion-refresher *ngIf = "!ios" pullingIcon = "lines" slot="fixed" id="refresher" (ionRefresh)="refreshNotifications($event)">
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
@@ -20,7 +20,7 @@
 
   <div *ngIf="refreshed">
   <div *ngIf="noNotifs">
-    <ion-button  color="success" *ngIf= "ios" expand="block" button (click) = "refreshNotifications()">Refresh</ion-button>
+    <ion-button  color="success" *ngIf= "ios" expand="block" button (click) = "refreshNotifications($event)">Refresh</ion-button>
     <ion-refresher *ngIf = "!ios" pullingIcon = "lines" slot="fixed" id="refresher" (ionRefresh)="refreshNotifications($event)">
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
@@ -34,7 +34,7 @@
   </div>
 
     <div *ngIf="!noNotifs">
-      <ion-button color="success" *ngIf= "ios" expand="block" button (click) = "refreshNotifications()">Refresh</ion-button>
+      <ion-button color="success" *ngIf= "ios" expand="block" button (click) = "refreshNotifications($event)">Refresh</ion-button>
       <ion-refresher *ngIf = "!ios" pullingIcon = "lines" slot="fixed" id="refresher" (ionRefresh)="refreshNotifications($event)">
           <ion-refresher-content></ion-refresher-content>
         </ion-refresher>
@@ -49,8 +49,8 @@
           <img src="https://www.seekpng.com/png/detail/250-2503958_potted-plants-clipart-transparent-background-plant-logo-free.png" width="40" height="40">
           <ion-label button (click) = "notificationClicked('clickedNotifications', notifs, not)">
           
-            <h3 *ngIf= not.title.length<38  class="notification-text"  style="color:black;"> {{ not.title }}</h3>
-            <h3 *ngIf= 38<not.title.length class="notification-text" style="color:black;"> {{ not.title.substring(0,38) +"..." }}</h3>
+            <h3 *ngIf= "not.title.length < 38"  class="notification-text"  style="color:black;"> {{ not.title }}</h3>
+            <h3 *ngIf= "38 < not.title.length" class="notification-text" style="color:black;"> {{ not.title.substring(0,38) +"..." }}</h3>
             <h4 class="notification-text" style="color:black;"> {{ convertDate(not.timestamp).toLocaleString()}}</h4>
           </ion-label>
           <ion-icon (click) = "openActionSheetController(notifs, not)" class="options" name="ellipsis-horizontal" ></ion-icon>
@@ -75,7 +75,7 @@
   </div>
 
   <div *ngIf="!refreshed">
-    <ion-button  color="success" *ngIf= "ios" expand="block" button (click) = "refreshNotifications()">Refresh</ion-button>
+    <ion-button  color="success" *ngIf= "ios" expand="block" button (click) = "refreshNotifications($event)">Refresh</ion-button>
     <ion-refresher *ngIf = "!ios" pullingIcon = "lines" slot="fixed" id="refresher" (ionRefresh)="refreshNotifications($event)">
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
@@ -90,7 +90,7 @@
 
   <div *ngIf="refreshed">
   <div *ngIf="noNotifs">
-    <ion-button  color="success" *ngIf= "ios" expand="block" button (click) = "refreshNotifications()">Refresh</ion-button>
+    <ion-button  color="success" *ngIf= "ios" expand="block" button (click) = "refreshNotifications($event)">Refresh</ion-button>
     <ion-refresher *ngIf = "!ios" pullingIcon = "lines" slot="fixed" id="refresher" (ionRefresh)="refreshNotifications($event)">
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
@@ -104,7 +104,7 @@
   </div>
 
     <div *ngIf="!noNotifs">
-      <ion-button color="success" *ngIf= "ios" expand="block" button (click) = "refreshNotifications()">Refresh</ion-button>
+      <ion-button color="success" *ngIf= "ios" expand="block" button (click) = "refreshNotifications($event)">Refresh</ion-button>
       <ion-refresher *ngIf = "!ios" pullingIcon = "lines" slot="fixed" id="refresher" (ionRefresh)="refreshNotifications($event)">
           <ion-refresher-content></ion-refresher-content>
         </ion-refresher>
@@ -119,8 +119,8 @@
           <img src="https://www.seekpng.com/png/detail/250-2503958_potted-plants-clipart-transparent-background-plant-logo-free.png" width="40" height="40">
           <ion-label button (click) = "notificationClicked('clickedNotifications', notifs, not)">
           
-            <h3 *ngIf= not.title.length<38  class="notification-text"  style="color:black;"> {{ not.title }}</h3>
-            <h3 *ngIf= 38<not.title.length class="notification-text" style="color:black;"> {{ not.title.substring(0,38) +"..." }}</h3>
+            <h3 *ngIf= "not.title.length<38"  class="notification-text"  style="color:black;"> {{ not.title }}</h3>
+            <h3 *ngIf= "38<not.title.length" class="notification-text" style="color:black;"> {{ not.title.substring(0,38) +"..." }}</h3>
             <h4 class="notification-text" style="color:black;"> {{ convertDate(not.timestamp).toLocaleString()}}</h4>
           </ion-label>
           <ion-icon (click) = "openActionSheetController(notifs, not)" class="options" name="ellipsis-horizontal" ></ion-icon>

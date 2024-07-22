@@ -10,7 +10,7 @@ describe('CameraComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CameraComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule] //.forRoot() Emma
     }).compileComponents();
 
     fixture = TestBed.createComponent(CameraComponent);

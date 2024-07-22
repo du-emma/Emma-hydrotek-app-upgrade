@@ -10,7 +10,7 @@ describe('AuthPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AuthPage ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule] //.forRoot() Emma
     }).compileComponents();
 
     fixture = TestBed.createComponent(AuthPage);

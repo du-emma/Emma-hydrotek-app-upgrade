@@ -13,35 +13,36 @@ import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import { ComponentsModule } from './components/components.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ChartsModule } from 'ng2-charts';
+import { BaseChartDirective } from 'ng2-charts';
 import { VariableManagementService } from './Services/variable-management.service';
 import { IdentifyDevicePage } from './add-device/identify-device/identify-device.page';
 import { IdentifyDevicePageModule } from './add-device/identify-device/identify-device.module';
 import { AddPowerOutletPage } from './add-power-outlet/add-power-outlet.page';
 import { AddPowerOutletPageModule } from './add-power-outlet/add-power-outlet.module';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { FirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { AddFertigationSystemPage } from './add-fertigation-system/add-fertigation-system.page';
 import { AddClimateControllerPage } from './add-climate-controller/add-climate-controller.page';
 import { AddFertigationSystemPageModule } from './add-fertigation-system/add-fertigation-system.module';
 import { AddClimateControllerPageModule } from './add-climate-controller/add-climate-controller.module';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [IdentifyDevicePage, AddPowerOutletPage, AddCameraPage, AddFertigationSystemPage, AddClimateControllerPage ],
+  //entryComponents: [IdentifyDevicePage, AddPowerOutletPage, AddCameraPage, AddFertigationSystemPage, AddClimateControllerPage ],
   imports: [
     BrowserModule, 
     HttpClientModule, 
-    IonicModule.forRoot(), 
+    IonicModule, //.forRoot Emma
     AppRoutingModule, 
     ComponentsModule, 
     FormsModule, 
-    ReactiveFormsModule,ChartsModule, 
+    ReactiveFormsModule,
     IdentifyDevicePageModule, 
     AddPowerOutletPageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,
+    AngularFireModule,
     AddCameraPageModule,
     AddFertigationSystemPageModule,
     AddClimateControllerPageModule

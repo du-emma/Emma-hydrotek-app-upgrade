@@ -114,7 +114,7 @@ export class AnalyticsPage implements OnInit {
           this.historicalData = result;
           console.warn("Fetched for", durationHrs, "hours:", result);
           this.isLoading = false;
-          if (this.historicalData.length > 0) {
+          if (Number(this.historicalData.length) > 0) {
             this.setCardFlags();
           } else {
             this.existingSensors = null;

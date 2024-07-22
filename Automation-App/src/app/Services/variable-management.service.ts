@@ -392,7 +392,7 @@ export class VariableManagementService {
     } else {
       //What if the data is already there, all of it? return the data in of()
       let currentAData: analytics_data = currentTarget.analyticsData;
-      if (currentAData && currentAData.length > 0) {//checking null
+      if (currentAData && Number(currentAData.length) > 0) {//checking null
         let firstTimestampDate = new Date(currentAData.firstTimestamp);
         let lastTimestampDate = new Date(currentAData.lastTimestamp);
         if (

@@ -11,4 +11,8 @@ export class DoseSettingsComponent implements OnInit {
 
   ngOnInit() {}
 
+  toggleAccordion() { 
+    return;
+  }
+
 }

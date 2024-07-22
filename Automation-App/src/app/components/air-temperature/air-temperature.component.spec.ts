@@ -10,7 +10,7 @@ describe('AirTemperatureComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AirTemperatureComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule] //.forRoot() Emma
     }).compileComponents();
 
     fixture = TestBed.createComponent(AirTemperatureComponent);

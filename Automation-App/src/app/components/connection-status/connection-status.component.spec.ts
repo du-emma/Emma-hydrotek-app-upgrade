@@ -10,7 +10,7 @@ describe('ConnectionStatusComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ConnectionStatusComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule] //.forRoot() Emma
     }).compileComponents();
 
     fixture = TestBed.createComponent(ConnectionStatusComponent);

@@ -10,7 +10,7 @@ describe('AddPowerOutletPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AddPowerOutletPage ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule] //.forRoot() Emma
     }).compileComponents();
 
     fixture = TestBed.createComponent(AddPowerOutletPage);

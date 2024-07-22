@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import {
-  Plugins,
-  PushNotification,
-  PushNotificationToken,
-  PushNotificationActionPerformed,
-  Capacitor
-} from '@capacitor/core'; 
+  //PushNotificationSchema,
+  Token,
+  ActionPerformed
+} from '@capacitor/push-notifications'; 
+import { PushNotification} from '@capacitor/push-notifications';
+import { Capacitor, Plugins } from '@capacitor/core';
 import { Router } from '@angular/router';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AuthService } from '../auth/auth.service';
 import { take } from 'rxjs/operators';
+import { Plugin } from '@ionic-native/core';
  
-const { PushNotifications } = Plugins;
+const { PushNotificationSchema } = Plugins;
  
 @Injectable({
   providedIn: 'root'
@@ -22,47 +23,47 @@ export class FcmService {
  
   initPush() {
     console.log("inside init push");
-    if (Capacitor.platform !== 'web') {
+    if (Capacitor.getPlatform() !== 'web') {
       console.log("not web");
       this.registerPush();
     }
   }
  
   private registerPush() {
-    PushNotifications.requestPermission().then((permission) => {
+    PushNotificationSchema.requestPermission().then((permission) => {
       if (permission.granted) {
         // Register with Apple / Google to receive push via APNS/FCM
-        PushNotifications.register();
+        PushNotificationSchema.register();
       } else {
         // No permission for push granted
       }
     });
  
-    PushNotifications.addListener(
+    PushNotificationSchema.addListener(
       'registration',
-      (token: PushNotificationToken) => {
+      (token: Token) => {
         this.authService.userId.pipe(take(1)).subscribe((userID) => {
           this.fireStore.collection('userData').doc(userID).update({registrationToken: token.value});
         });
       }
     );
  
-    PushNotifications.addListener('registrationError', (error: any) => {
+    PushNotificationSchema.addListener('registrationError', (error: any) => {
       console.log('Error: ' + JSON.stringify(error));
     });
  
-    PushNotifications.addListener(
+    PushNotificationSchema.addListener(
       'pushNotificationReceived',
-      async (notification: PushNotification) => {
+      async (notification: typeof PushNotificationSchema) => {
         console.log('dPush received: ' + JSON.stringify(notification));
       }
     );
 
     console.log("added listener");
  
-    PushNotifications.addListener(
+    PushNotificationSchema.addListener(
       'pushNotificationActionPerformed',
-      async (notification: PushNotificationActionPerformed) => {
+      async (notification: ActionPerformed) => {
         const data = notification.notification.data;
         console.log('Action performed: ' + JSON.stringify(notification.notification));
         if (data.detailsId) {

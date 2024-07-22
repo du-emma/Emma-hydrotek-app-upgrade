@@ -6,7 +6,7 @@ import { User } from './user.model';
 import { map, switchMap, take, tap } from 'rxjs/operators';
 import { IonicStorageService } from '../Services/ionic-storage.service';
 import { VariableManagementService } from '../Services/variable-management.service';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { FirestoreModule } from '@angular/fire/firestore';
 import { MqttInterfaceService } from '../Services/mqtt-interface.service';
 import { AlertController } from '@ionic/angular';
 
@@ -57,7 +57,7 @@ IDToken;
     else return null;}));
   }
 
-  constructor(private http: HttpClient, private storageService: IonicStorageService, private variableManagementService: VariableManagementService, private fireStore: AngularFirestore, private mqttService: MqttInterfaceService, private alertController: AlertController) { }
+  constructor(private http: HttpClient, private storageService: IonicStorageService, private variableManagementService: VariableManagementService, private fireStore: FirestoreModule, private mqttService: MqttInterfaceService, private alertController: AlertController) { }
 
   signup( email: string, password: string, confirmpassword: string){
     return this.http.post<AuthResponseData>(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.firebaseConfig.apiKey}`,

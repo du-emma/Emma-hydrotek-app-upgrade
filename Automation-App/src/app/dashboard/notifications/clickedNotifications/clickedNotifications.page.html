@@ -1,7 +1,7 @@
 <ion-content *ngIf="darkMode" color="dark" class="gradient_background">
   <div class="content">
     <ion-toolbar>
-      <ion-icon button (click) = "navigateToTab('notifications')" style="color:white;" name="arrow-back-outline"></ion-icon>
+      <ion-icon button (click) = "navigateToTab()" style="color:white;" name="arrow-back-outline"></ion-icon>
       <ion-buttons slot="end">
       </ion-buttons>
     </ion-toolbar>
@@ -23,7 +23,7 @@
 <ion-content *ngIf="!darkMode" class="gradient_background">
   <div class="content">
     <ion-toolbar>
-      <ion-icon button (click) = "navigateToTab('notifications')" style="color:white;" name="arrow-back-outline"></ion-icon>
+      <ion-icon button (click) = "navigateToTab()" style="color:white;" name="arrow-back-outline"></ion-icon>
       <ion-buttons slot="end">
       </ion-buttons>
     </ion-toolbar>

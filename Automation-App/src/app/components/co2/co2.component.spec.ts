@@ -10,7 +10,7 @@ describe('Co2Component', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ Co2Component ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule] //.forRoot() Emma
     }).compileComponents();
 
     fixture = TestBed.createComponent(Co2Component);

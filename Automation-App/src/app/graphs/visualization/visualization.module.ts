@@ -7,17 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { VisualizationPageRoutingModule } from './visualization-routing.module';
 
 import { VisualizationPage } from './visualization.page';
-import {ChartsModule} from 'ng2-charts'
+import {BaseChartDirective} from 'ng2-charts'
 import { AddClimateControllerPageModule } from 'src/app/add-climate-controller/add-climate-controller.module';
 import { AddFertigationSystemPageModule } from 'src/app/add-fertigation-system/add-fertigation-system.module';
- 
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     VisualizationPageRoutingModule,
-    ChartsModule,
     AddClimateControllerPageModule,
     AddFertigationSystemPageModule
   ],

@@ -10,7 +10,7 @@ describe('AddFertigationSystemPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AddFertigationSystemPage ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule] //.forRoot() Emma
     }).compileComponents();
 
     fixture = TestBed.createComponent(AddFertigationSystemPage);

@@ -10,7 +10,7 @@ describe('IdentifyDevicePage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ IdentifyDevicePage ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule] //.forRoot() Emma
     }).compileComponents();
 
     fixture = TestBed.createComponent(IdentifyDevicePage);

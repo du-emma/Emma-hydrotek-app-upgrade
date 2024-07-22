@@ -10,7 +10,7 @@ describe('EcComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ EcComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule] //.forRoot() Emma
     }).compileComponents();
 
     fixture = TestBed.createComponent(EcComponent);

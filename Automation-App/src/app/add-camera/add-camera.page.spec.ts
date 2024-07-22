@@ -10,7 +10,7 @@ describe('AddCameraPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AddCameraPage ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule] //Emma .forRoot
     }).compileComponents();
 
     fixture = TestBed.createComponent(AddCameraPage);

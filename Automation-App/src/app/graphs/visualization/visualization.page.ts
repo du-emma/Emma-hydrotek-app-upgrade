@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {Chart} from 'chart.js';
-import {ChartDataSets} from 'chart.js';
+import {ChartDataset} from 'chart.js';
 
 import { VariableManagementService } from 'src/app/Services/variable-management.service';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
 import { Label } from 'ng2-charts';
-import { ChartsModule } from 'ng2-charts';
+import { BaseChartDirective } from 'ng2-charts';
 import * as moment from 'moment';
 import { ModalController } from '@ionic/angular';
 import { AddFertigationSystemPage } from 'src/app/add-fertigation-system/add-fertigation-system.page';
@@ -88,10 +88,10 @@ onSelectedChange(event:any){
 }
 
 //New piece of code
-chartData:ChartDataSets[]=[
-  {data:[],label:'ph',borderColor: "#3e95cd",fill: false,lineTension:0,yAxisID:'ph-ec'},
-  {data:[],label:'ec',borderColor: "#8e5ea2",fill: false,lineTension:0,yAxisID:'ph-ec'},
-  {data:[],label:'temp',borderColor: "#FF4233",fill: false,lineTension:0,yAxisID:'temp'}];
+chartData:ChartDataset[]=[
+  {data:[],label:'ph',borderColor: "#3e95cd",fill: false,tension:0,yAxisID:'ph-ec'},
+  {data:[],label:'ec',borderColor: "#8e5ea2",fill: false,tension:0,yAxisID:'ph-ec'},
+  {data:[],label:'temp',borderColor: "#FF4233",fill: false,tension:0,yAxisID:'temp'}];
 
 chartLabels: Label[];
 chartType = 'line';
